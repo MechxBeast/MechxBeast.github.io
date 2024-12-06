@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Neon Vibes - Futuristic Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <h1>ARYAN GUPTA</h1>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Technical Skills</a></li>
+                    <li><a href="#non-technical-skills">Non-Technical Skills</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="home" class="hero">
+                <div class="hero-content">
+                    <h2>WELCOME TO MY PORTFOLIO</h2>
+                    <p>Explore my projects and skills.</p>
+                    <button class="explore-btn">Explore Now</button>
+                </div>
+                <div id="canvas-container"></div>
+            </section>
+            <section id="projects" class="projects-section">
+                <h2>Featured Projects</h2>
+                <div class="projects-container">
+                    <div class="project-card">
+                        <img src="project1.png" alt="Project 1">
+                        <h3>Project Genesis</h3>
+                        <p>Project Genesis is an innovative e-library platform <br>where users can read and download books online. <br>It features a unique streak system, <br>personalized recommendations,<br> and a gaming area inspired by Monopoly. <br>The game encourages users <br>to explore different genres, <br>rolling dice to land on genres like horror, <br>which prompts them to read a book <br>from that category to roll again.</p>
+                    </div>
+                    <div class="project-card">
+                        <img src="project2.jpg" alt="Project 2">
+                        <h3>Project Beta</h3>
+                        <p>This project is currently under production <br>and will be updated soon. <br>Stay tuned</p>
+                    </div>
+                    <div class="project-card">
+                        <img src="project3.jpg" alt="Project 3">
+                        <h3>Project Gamma</h3>
+                        <p>This project is currently under production <br>and will be updated soon. <br>Stay tuned</p>
+                    </div>
+                </div>
+            </section>
+            <section id="skills" class="skills-section">
+                <h2>Technical Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-card">
+                        <i class="fas fa-code"></i>
+                        <h3>Front-End Web Development</h3>
+                        <p>As an intermediate front-end developer,<br> I excel in HTML, CSS, and JavaScript,<br> enabling me to create responsive <br> and dynamic web experiences.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-brain"></i>
+                        <h3>Product Management</h3>
+                        <p>Having completed a job simulation of <br>product management at <br>Electronic Arts (EA),<br> I have a foundational understanding <br>of product management principles <br>and practices.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-palette"></i>
+                        <h3>Web Design</h3>
+                        <p>As a beginner in web design,<br> I have started learning UI/UX design <br>and have some experience with Figma. <br>I am eager to improve my skills <br>and create intuitive <br>and visually appealing designs.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="non-technical-skills" class="skills-section">
+                <h2>Non-Technical Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Language</h3>
+                        <p>Fluent in Hindi (my mother tongue), and English,<br> I also have beginner to intermediate proficiency <br>in Japanese, allowing me to understand <br>and communicate at a basic level.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Typing Speed</h3>
+                        <p>With a proficient typing speed of <br> 55 words per minute and 97% accuracy,<br> I efficiently handle tasks that require fast <br> and accurate data entry and communication.</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-hourglass-half"></i>
+                        <h3>Time Management</h3>
+                        <p>Efficiently prioritize and manage tasks <br>to meet deadlines consistently, <br>ensuring productivity and <br>maintaining high standards under pressure.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="about" class="about-section">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <p>Hi, I'm Aryan Gupta, an enthusiastic web developer and tech enthusiast currently pursuing my degree at VIT Bhopal. I specialize in front-end development and web design, creating visually appealing and user-friendly websites. Beyond my professional interests, gaming is a significant hobby of mine—it's where I find both relaxation and inspiration. I love exploring new technologies and trends in the tech world, constantly pushing the boundaries to innovate and improve. Welcome to my portfolio, where you can see my journey unfold and the projects I've brought to life!</p>
+                    <div class="image-container">
+                        <img src="me3.png" alt="Aryan Gupta" class="main-image">
+                        <img src="me2.png" alt="Aryan Gupta Hover" class="hover-image">
+                    </div>
+                </div>
+            </section>
+            <section id="contact" class="contact-section">
+                <h2>Contact Me</h2>
+                <form id="contact-form">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+                <p>You can also reach me directly at: <a href="mailto:your.email@example.com" class="email-link">aryangupta12305@example.com</a></p>
+            </section>           
+        </main>
+        <footer>
+            <p>&copy; 2024 Neon Vibes. All rights reserved.</p>
+        </footer>
+        <script src="script.js"></script>
+    </body>
+</html>
