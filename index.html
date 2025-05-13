@@ -2,21 +2,33 @@
 <html>
     <head>
         <title>Aryan Gupta - Portfolio</title>
+        <meta name="description" content="Portfolio of Aryan Gupta, a web developer specializing in front-end development and web design.">
+        <meta name="keywords" content="Aryan Gupta, web developer, portfolio, front-end, web design">
+        <meta name="author" content="Aryan Gupta">
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     </head>
     <body>
         <header>
             <nav>
-                <h1>ARYAN GUPTA</h1>
+                <h1 id="nav-name">ARYAN GUPTA</h1>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Technical Skills</a></li>
-                    <li><a href="#non-technical-skills">Non-Technical Skills</a></li>
-                    <li><a href="#about">About Me</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a id="nav-home" href="#home">Home</a></li>
+                    <li><a id="nav-projects" href="#projects">Projects</a></li>
+                    <li><a id="nav-technical-skills" href="#skills">Technical Skills</a></li>
+                    <li><a id="nav-non-technical-skills" href="#non-technical-skills">Non-Technical Skills</a></li>
+                    <li><a id="nav-about" href="#about">About Me</a></li>
+                    <li><a id="nav-contact" href="#contact">Contact</a></li>
+                    <li>
+                        <div id="nav-theme-toggle" class="theme-toggle">
+                            <i class="fas fa-lightbulb bulb"></i>
+                            <svg id="theme-string" width="20" height="40" style="margin-top: 5px;" viewBox="0 0 20 40">
+                                <path id="rope-path" d="M10 0 Q10 20 10 30" stroke="#f1f1f1" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </header>
@@ -27,23 +39,46 @@
                     <p>Explore my projects and skills.</p>
                     <button class="explore-btn">Explore Now</button>
                 </div>
-                <div id="canvas-container"></div>
+                <div id="canvas-container">
+                    <button class="model-switch left-arrow" id="left-arrow" aria-label="Previous 3D model">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="model-switch right-arrow" id="right-arrow" aria-label="Next 3D model">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
             </section>
+            <!-- Tutorial Modal -->
+            <div id="tutorial-modal" class="tutorial-modal" role="dialog" aria-labelledby="tutorial-title" aria-hidden="true">
+                <div class="tutorial-content">
+                    <h3 id="tutorial-title"></h3>
+                    <p id="tutorial-description"></p>
+                    <div class="tutorial-buttons">
+                        <button id="tutorial-prev" aria-label="Previous step">Previous</button>
+                        <button id="tutorial-next" aria-label="Next step">Next</button>
+                        <button id="tutorial-close" aria-label="Close tutorial">Close</button>
+                    </div>
+                    <label class="tutorial-checkbox">
+                        <input type="checkbox" id="tutorial-dont-show">
+                        Don’t show again
+                    </label>
+                </div>
+            </div>
             <section id="projects" class="projects-section">
                 <h2>Featured Projects</h2>
                 <div class="projects-container">
                     <div class="project-card">
-                        <img src="project1.png" alt="Project 1">
+                        <img src="project1.png" alt="Project 1" loading="lazy">
                         <h3>Project Genesis</h3>
                         <p>Project Genesis is an innovative e-library platform <br>where users can read and download books online. <br>It features a unique streak system, <br>personalized recommendations,<br> and a gaming area inspired by Monopoly. <br>The game encourages users <br>to explore different genres, <br>rolling dice to land on genres like horror, <br>which prompts them to read a book <br>from that category to roll again.</p>
                     </div>
                     <div class="project-card">
-                        <img src="project2.jpg" alt="Project 2">
+                        <img src="project2.jpg" alt="Project 2" loading="lazy">
                         <h3>Project Beta</h3>
                         <p>This project is currently under production <br>and will be updated soon. <br>Stay tuned</p>
                     </div>
                     <div class="project-card">
-                        <img src="project3.jpg" alt="Project 3">
+                        <img src="project3.jpg" alt="Project 3" loading="lazy">
                         <h3>Project Gamma</h3>
                         <p>This project is currently under production <br>and will be updated soon. <br>Stay tuned</p>
                     </div>
@@ -94,8 +129,8 @@
                 <div class="about-content">
                     <p>Hi, I'm Aryan Gupta, an enthusiastic web developer and tech enthusiast currently pursuing my degree at VIT Bhopal. I specialize in front-end development and web design, creating visually appealing and user-friendly websites. Beyond my professional interests, gaming is a significant hobby of mine—it's where I find both relaxation and inspiration. I love exploring new technologies and trends in the tech world, constantly pushing the boundaries to innovate and improve. Welcome to my portfolio, where you can see my journey unfold and the projects I've brought to life!</p>
                     <div class="image-container">
-                        <img src="me3.png" alt="Aryan Gupta" class="main-image">
-                        <img src="me2.png" alt="Aryan Gupta Hover" class="hover-image">
+                        <img src="me3.png" alt="Aryan Gupta" class="main-image" loading="lazy">
+                        <img src="me2.png" alt="Aryan Gupta Hover" class="hover-image" loading="lazy">
                     </div>
                 </div>
             </section>
@@ -107,11 +142,11 @@
                     <textarea id="message" name="message" placeholder="Your Message" required></textarea>
                     <button type="submit">Send Message</button>
                 </form>
-                <p>You can also reach me directly at: <a href="mailto:your.email@example.com" class="email-link">aryangupta12305@example.com</a></p>
-            </section>           
+                <p>You can also reach me directly at: <a href="mailto:aryangupta12305@example.com" class="email-link">aryangupta12305@example.com</a></p>
+            </section>
         </main>
         <footer>
-            <p>&copy; 2024 Neon Vibes. All rights reserved.</p>
+            <p>© 2024 Neon Vibes. All rights reserved.</p>
         </footer>
         <script src="script.js"></script>
     </body>
