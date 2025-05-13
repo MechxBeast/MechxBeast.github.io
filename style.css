@@ -10,6 +10,7 @@ body {
 header {
     background: #1f1f1f;
     padding: 15px 0;
+    box-sizing: border-box;
 }
 
 nav {
@@ -18,6 +19,7 @@ nav {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 nav h1 {
@@ -30,12 +32,99 @@ nav ul {
     list-style: none;
     display: flex;
     gap: 25px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #f1f1f1;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+}
+
+/* Theme Toggle Styles */
+.theme-toggle {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    z-index: 10;
+}
+
+.bulb {
+    font-size: 1.7rem;
+    color: #f1f1f1;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.light-mode .bulb {
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;
+}
+
+#theme-string {
+    cursor: grab;
+    width: 20px;
+    height: 40px;
+    overflow: visible;
+    margin-top: 3px;
+}
+
+#theme-string.dragging {
+    cursor: grabbing;
+}
+
+#rope-path {
+    stroke: #f1f1f1;
+    stroke-width: 2.5;
+    fill: none;
+    transition: d 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.light-mode #rope-path {
+    stroke: #2e4d4a;
+}
+
+#theme-string:hover #rope-path {
+    stroke: #00ccff;
+}
+
+/* Light Mode Styles */
+.light-mode {
+    background: #e0f7ef;
+    color: #2e4d4a;
+}
+
+.light-mode header, .light-mode footer {
+    background: #f0fff8;
+}
+
+.light-mode .hero {
+    background: linear-gradient(135deg, #c8f0e6 0%, #f0fff8 100%);
+}
+
+.light-mode .projects-section, .light-mode .skills-section, .light-mode .contact-section, .light-mode .about-section {
+    background: #e0f7ef;
+}
+
+.light-mode .project-card, .light-mode .skill-card {
+    background: #d0ece5;
+}
+
+.light-mode nav ul li a, .light-mode .project-card p, .light-mode .skill-card p, .light-mode .about-content p, .light-mode footer p {
+    color: #2e4d4a;
+}
+
+.light-mode #contact-form input, .light-mode #contact-form textarea {
+    background: #f0fff8;
+    color: #2e4d4a;
+    border: 1px solid #a0c9c2;
+}
+
+.light-mode .email-link {
+    color: #00ccff;
 }
 
 .hero {
@@ -53,6 +142,14 @@ nav ul li a {
     max-width: 700px;
     color: white;
     z-index: 2;
+}
+
+.hero-content p {
+    color: #f1f1f1;
+}
+
+.light-mode .hero-content p {
+    color: #2e4d4a;
 }
 
 .hero h2 {
@@ -86,6 +183,55 @@ nav ul li a {
     z-index: 1;
 }
 
+/* Model Switch Arrows */
+.model-switch {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 204, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+    z-index: 3;
+}
+
+.model-switch:hover {
+    background: rgba(0, 204, 255, 0.4);
+}
+
+.model-switch i {
+    font-size: 1.5rem;
+    color: #00ccff;
+    text-shadow: 0 0 10px #00ccff;
+}
+
+.left-arrow {
+    left: 20px;
+}
+
+.right-arrow {
+    right: 20px;
+}
+
+.light-mode .model-switch {
+    background: rgba(46, 77, 74, 0.2);
+}
+
+.light-mode .model-switch:hover {
+    background: rgba(46, 77, 74, 0.4);
+}
+
+.light-mode .model-switch i {
+    color: #2e4d4a;
+    text-shadow: 0 0 10px #2e4d4a;
+}
+
 .about-section {
     padding: 50px 20px;
     background: #1a1a1a;
@@ -117,7 +263,7 @@ nav ul li a {
 
 .image-container {
     position: relative;
-    perspective: 1000px; /* Add perspective for 3D effect */
+    perspective: 1000px;
 }
 
 .main-image, .hover-image {
@@ -134,7 +280,7 @@ nav ul li a {
 .hover-image {
     position: absolute;
     top: 0;
-    left: 0;
+    left:0;
     transform: scale(0.5);
     opacity: 0;
     filter: blur(5px);
@@ -239,12 +385,182 @@ footer {
 }
 
 .email-link {
-    color: #00ccff; /* Normal color matching the theme */
+    color: #00ccff;
     text-decoration: none;
-    font-weight: bold; /* Optional: makes the email link bold */
+    font-weight: bold;
 }
 
 .email-link:hover {
-    color: #ffffff; /* Hover color set to black */
-    text-decoration: underline; /* Optional: adds underline on hover */
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Tutorial Modal Styles */
+.tutorial-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.tutorial-modal.active {
+    display: block;
+}
+
+.tutorial-content {
+    background: #2f2f2f;
+    padding: 15px;
+    border-radius: 8px;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    transition: top 0.3s ease, left 0.3s ease; /* Animate position changes */
+}
+
+.tutorial-content.initial {
+    animation: fadeIn 0.3s ease; /* Apply fadeIn only on initial open */
+}
+
+.light-mode .tutorial-content {
+    background: #d0ece5;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.tutorial-content h3 {
+    color: #00ccff;
+    text-shadow: 0 0 10px #00ccff;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.tutorial-content p {
+    color: #f1f1f1;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.light-mode .tutorial-content p {
+    color: #2e4d4a;
+}
+
+.tutorial-buttons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.tutorial-buttons button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #00ccff;
+    color: white;
+    text-shadow: 0 0 10px #00ccff;
+    font-size: 0.8rem;
+}
+
+.tutorial-buttons button:hover {
+    background: #0099cc;
+}
+
+.tutorial-checkbox {
+    margin-top: 10px;
+    color: #f1f1f1;
+    font-size: 0.8rem;
+}
+
+.light-mode .tutorial-checkbox {
+    color: #2e4d4a;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Highlight Effect for Nav Items */
+.highlight {
+    box-shadow: 0 0 20px #00ccff;
+    border: 2px solid #00ccff;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    z-index: 1001; /* Above other elements */
+}
+
+.light-mode .highlight {
+    box-shadow: 0 0 20px #2e4d4a;
+    border: 2px solid #2e4d4a;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    .projects-container, .skills-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-card, .skill-card {
+        width: 90%;
+    }
+
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-content p {
+        margin-right: 0;
+        text-align: center;
+    }
+
+    .image-container {
+        margin-top: 20px;
+    }
+
+    .tutorial-content {
+        max-width: 90%;
+        padding: 10px;
+    }
+
+    .tutorial-buttons {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .model-switch {
+        width: 40px;
+        height: 40px;
+    }
+
+    .model-switch i {
+        font-size: 1.2rem;
+    }
+
+    .left-arrow {
+        left: 10px;
+    }
+
+    .right-arrow {
+        right: 10px;
+    }
 }
